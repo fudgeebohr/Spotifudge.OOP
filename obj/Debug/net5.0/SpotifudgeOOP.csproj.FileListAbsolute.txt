@@ -1,0 +1,16 @@
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.csproj.AssemblyReference.cache
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.AssemblyInfoInputs.cache
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.AssemblyInfo.cs
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.csproj.CoreCompileInputs.cache
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.exe
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.deps.json
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.runtimeconfig.json
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.runtimeconfig.dev.json
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.dll
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\ref\SpotifudgeOOP.dll
+C:\Users\User Pc\Documents\SpotifudgeOOP\bin\Debug\net5.0\SpotifudgeOOP.pdb
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.dll
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\ref\SpotifudgeOOP.dll
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.pdb
+C:\Users\User Pc\Documents\SpotifudgeOOP\obj\Debug\net5.0\SpotifudgeOOP.genruntimeconfig.cache
