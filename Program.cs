@@ -7,39 +7,54 @@ namespace SpotifudgeOOP
     {
         static void Main(string[] args)
         {
-            Track Track1 = new Track();
-            Track1.trackName = "COOL (Your Rainbow)";
-            Track1.artistName = "NMIXX";
-            Track1.lengthMin = 2;
-            Track1.lengthSec = 50;
-            Track1.albumName = "ENTWURF";
-            Track1.genre = "K-Pop";
+            User user = Login();
 
-            Track Track2 = new Track();
-            Track2.trackName = "Wish I Could Be Your Girl";
-            Track2.artistName = "Kristiane";
-            Track2.lengthMin = 2;
-            Track2.lengthSec = 27;
-            Track2.albumName = "I Miss Myself, Sometimes";
-            Track2.genre = "Alternative/Indie";
+            Track[] tracks = new Track[]
+            {
+                new Track { trackName = "COOL (Your Rainbow)", artistName = "NMIXX", lengthMin = 2, lengthSec = 50, albumName = "ENTWURF", genre = "K-Pop" },
+                new Track { trackName = "Wish I Could Be Your Girl", artistName = "Kristiane", lengthMin = 2, lengthSec = 27, albumName = "I Miss Myself, Sometimes", genre = "Alternative/Indie" },
+                new Track { trackName = "That's Hilarious", artistName = "Charlie Puth", lengthMin = 2, lengthSec = 24, albumName = "CHARLIE", genre = "Pop" },
+                new Track { trackName = "She's In The Rain", artistName = "The Rose", lengthMin = 3, lengthSec = 57, albumName = "Dawn", genre = "Korean Rock/Alt" },
+                new Track { trackName = "apollo", artistName = "Faith Zapata", lengthMin = 5, lengthSec = 12, albumName = "apollo", genre = "Alternative/Indie" },
+                new Track { trackName = "Deja Vu", artistName = "Uki Violeta, PrettyPatterns", lengthMin = 4, lengthSec = 38, albumName = "Deja Vu", genre = "Alternative/Indie" },
+                new Track { trackName = "Good enough", artistName = "Xdinary Heroes", lengthMin = 3, lengthSec = 57, albumName = "Deadlock", genre = "Korean Rock/Alt" }
+            };
 
-            Track Track3 = new Track();
-            Track3.trackName = "That's Hilarious";
-            Track3.artistName = "Charlie Puth";
-            Track3.lengthMin = 2;
-            Track3.lengthSec = 24;
-            Track3.albumName = "CHARLIE";
-            Track3.genre = "Pop";
+            var discoverWeekly = new List<string>()
+            {
+                " ",
+                "Discover Weekly",
+                " ",
+                "Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts",
+                "picked just for you. Updates every Monday, so save your favorites!",
+                " ",
+                "By Spotifudge",
+                " "
+            };
 
-            var discoverWeekly = new List <string>()
-            {" ", "Discover Weekly", " ", "Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts", "picked just for you. Updates every Monday, so save your favorites!", " ", "By Spotifudge", " "};
-            foreach(string i in discoverWeekly)
+            foreach (string i in discoverWeekly)
             {
                 Console.WriteLine(i);
             }
-            Console.WriteLine("1. " + Track1.trackName + " - " + Track1.artistName);
-            Console.WriteLine("2. " + Track2.trackName + " - " + Track2.artistName);
-            Console.WriteLine("3. " + Track3.trackName + " - " + Track3.artistName);
+
+            for (int i = 0; i < tracks.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {tracks[i].trackName} - {tracks[i].artistName}");
+            }
+        }
+
+        private static User Login()
+        {
+            Console.WriteLine("Log in to Spotifudge.");
+            string username = GetUsername();
+
+            return new User(username);
+        }
+
+        public static string GetUsername()
+        {
+            Console.Write("Username: ");
+            return Console.ReadLine();
         }
     }
 }
