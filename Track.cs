@@ -15,77 +15,16 @@ namespace SpotifudgeOOP
         public string albumName { get; set; }
         public string genre { get; set; }
 
-        private bool isPlaying;
-        private bool isPaused;
-        private bool isRepeated;
+        public Track() { }
 
-        public void Play()
+        public Track(Track track)
         {
-            if (!isPlaying)
-            {
-                Console.WriteLine("Playing: " + trackName);
-                isPlaying = true;
-                isPaused = false;
-            }
-            else
-            {
-                Console.WriteLine("Track is already playing.");
-            }
-        }
-
-        public void Pause()
-        {
-            if (isPlaying && !isPaused)
-            {
-                Console.WriteLine("Pausing: " + trackName);
-                isPaused = true;
-            }
-            else if (!isPlaying)
-            {
-                Console.WriteLine("Cannot pause. Track is not currently playing.");
-            }
-            else
-            {
-                Console.WriteLine("Track is already paused.");
-            }
-        }
-
-        public void Shuffle()
-        {
-
-        }
-
-        public void Repeat()
-        {
-            if (!isRepeated)
-            {
-                Console.WriteLine("Repeating: " + trackName);
-                isRepeated = true;
-            }
-            else
-            {
-                Console.WriteLine("Track is already set to repeat.");
-            }
-        }
-
-        public void Skip()
-        {
-
-        }
-
-        public void Rewind()
-        {
-
-        }
-        
-        public void AddToPlaylist()
-        {
-
-        }
-
-        public void RemoveFromPlaylist()
-        {
-
+            trackName = track.trackName;
+            artistName = track.artistName;
+            lengthMin = track.lengthMin;
+            lengthSec = track.lengthSec;
+            albumName = track.albumName;
+            genre = track.genre;
         }
     }
 }
