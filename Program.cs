@@ -24,7 +24,7 @@ namespace SpotifudgeOOP
                 new Track { trackName = "Deja Vu", artistName = "Uki Violeta, PrettyPatterns", 
                             lengthMin = 4, lengthSec = 38, albumName = "Deja Vu", genre = "Alternative/Indie" },
                 new Track { trackName = "Good enough", artistName = "Xdinary Heroes", 
-                            lengthMin = 3, lengthSec = 57, albumName = "Deadlock", genre = "Korean Rock/Alt" }
+                            lengthMin = 3, lengthSec = 57, albumName = "Deadlock", genre = "Korean Rock/Alt" },
                 new Track { trackName = "Make Me Happy", artistName = "Whee In", 
                             lengthMin = 3, lengthSec = 17, albumName = "WHEE", genre = "K-Pop" },
                 new Track { trackName = "Huwag Muna Tayong Umuwi", artistName = "BINI", 
@@ -38,6 +38,7 @@ namespace SpotifudgeOOP
                 " ",
                 "Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts",
                 "picked just for you. Updates every Monday, so save your favorites!",
+                " ",
                 $"Made for {User.Username}",
                 "By Spotifudge",
                 " "
@@ -62,12 +63,15 @@ namespace SpotifudgeOOP
                 if (selectedTrackIndex >= 1 && selectedTrackIndex <= tracks.Length)
                 {
                     Track selectedTrack = tracks[selectedTrackIndex - 1];
+                    Console .WriteLine(" ");
                     Console.WriteLine("Track Details:");
-                    Console.WriteLine($"Name: {selectedTrack.trackName}");
+                    Console.WriteLine($"Title: {selectedTrack.trackName}");
                     Console.WriteLine($"Artist: {selectedTrack.artistName}");
                     Console.WriteLine($"Length: {selectedTrack.lengthMin}:{selectedTrack.lengthSec}");
                     Console.WriteLine($"Album: {selectedTrack.albumName}");
                     Console.WriteLine($"Genre: {selectedTrack.genre}");
+
+                    PlaybackOptions();
                 }
                 else
                 {
@@ -93,6 +97,50 @@ namespace SpotifudgeOOP
         {
             Console.Write("Username: ");
             return Console.ReadLine();
+        }
+
+        public static void PlaybackOptions()
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("Playback Options:");
+            Console.WriteLine("1. Play");
+            Console.WriteLine("2. Shuffle");
+            Console.WriteLine("3. Repeat");
+            Console.WriteLine("4. Add to Playlist");
+            Console.WriteLine("5. Exit");
+            Console.WriteLine(" ");
+
+            Console.Write("Select an option (enter the number): ");
+            string input = Console.ReadLine();
+            int selectedOption;
+            if (int.TryParse(input, out selectedOption))
+            {
+                switch (selectedOption)
+                {
+                    case 1:
+                        Console.WriteLine("Playing track...");
+                        break;
+                    case 2:
+                        Console.WriteLine("Shuffling track...");
+                        break;
+                    case 3:
+                        Console.WriteLine("Repeating track...");
+                        break;
+                    case 4:
+                        Console.WriteLine("Adding track to playlist...");
+                        break;
+                    case 5:
+                        Console.WriteLine("Exiting...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option.");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid option number.");
+            }
         }
     }
 }
