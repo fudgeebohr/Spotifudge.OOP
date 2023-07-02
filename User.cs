@@ -8,7 +8,7 @@ namespace SpotifudgeOOP
 {
     class User
     {
-        public string Username { get; private set; }
+        public static string Username { get; private set; }
 
         public User(string username)
         {
