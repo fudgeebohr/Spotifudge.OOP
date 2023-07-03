@@ -11,24 +11,36 @@ namespace SpotifudgeOOP
 
             Track[] tracks = new Track[]
             {
-                new Track { trackName = "COOL (Your Rainbow)", artistName = "NMIXX",
-                            lengthMin = 2, lengthSec = 50, albumName = "ENTWURF", genre = "K-Pop" },
-                new Track { trackName = "Wish I Could Be Your Girl", artistName = "Kristiane",
-                            lengthMin = 2, lengthSec = 27, albumName = "I Miss Myself, Sometimes", genre = "Alternative/Indie" },
-                new Track { trackName = "That's Hilarious", artistName = "Charlie Puth",
-                            lengthMin = 2, lengthSec = 24, albumName = "CHARLIE", genre = "Pop" },
-                new Track { trackName = "She's In The Rain", artistName = "The Rose",
-                            lengthMin = 3, lengthSec = 57, albumName = "Dawn", genre = "Korean Rock/Alt" },
-                new Track { trackName = "apollo", artistName = "Faith Zapata",
-                            lengthMin = 5, lengthSec = 12, albumName = "apollo", genre = "Alternative/Indie" },
-                new Track { trackName = "Deja Vu", artistName = "Uki Violeta, PrettyPatterns",
-                            lengthMin = 4, lengthSec = 38, albumName = "Deja Vu", genre = "Alternative/Indie" },
-                new Track { trackName = "Good enough", artistName = "Xdinary Heroes",
-                            lengthMin = 3, lengthSec = 57, albumName = "Deadlock", genre = "Korean Rock/Alt" },
-                new Track { trackName = "Make Me Happy", artistName = "Whee In",
-                            lengthMin = 3, lengthSec = 17, albumName = "WHEE", genre = "K-Pop" },
-                new Track { trackName = "Huwag Muna Tayong Umuwi", artistName = "BINI",
-                            lengthMin = 4, lengthSec = 57, albumName = "Feel Good", genre = "P-Pop" },
+                new Track { trackName = "Here With Me", artistName = "d4vd", lengthMin = 4, 
+                            lengthSec = 12, albumName = "Petals to Thorns", genre = "Bedroom Pop" },
+                new Track { trackName = "golden hour", artistName = "JVKE", lengthMin = 2, 
+                            lengthSec = 39, albumName = "golden hour", genre = "Modern Indie Pop" },
+                new Track { trackName = "Romantic Homicide", artistName = "d4vd", lengthMin = 2, 
+                            lengthSec = 212, albumName = "Romantic Homicide", genre = "Bedroom Pop" },
+                new Track { trackName = "Those Eyes", artistName = "New West", lengthMin = 3,
+                            lengthSec = 40, albumName = "Those Eyes", genre = "Toronto Indie" },
+                new Track { trackName = "Sparks", artistName = "Coldplay", lengthMin = 3, 
+                            lengthSec = 47, albumName = "Parachutes", genre = "Permanent Wave" },
+                new Track { trackName = "better for you", artistName = "siopaolo", lengthMin = 4, 
+                            lengthSec = 49, albumName = "better for you", genre = "Bedroom R&B" },
+                new Track { trackName = "Lover", artistName = "Taylor Swift", lengthMin = 3, 
+                            lengthSec = 41, albumName = "Lover", genre = "Pop" },
+                new Track { trackName = "Glimpse of Us", artistName = "Joji", lengthMin = 3, 
+                            lengthSec = 53, albumName = "Glimpse of Us", genre = "Viral Pop" },
+                new Track { trackName = "As It Was", artistName = "Harry Styles", lengthMin = 2, 
+                            lengthSec = 47, albumName = "As It Was", genre = "Pop" },
+                new Track { trackName = "Sofia", artistName = "Clairo", lengthMin = 3, 
+                            lengthSec = 18, albumName = "Immunity", genre = "Indie Pop"},
+                new Track { trackName = "Reckless", artistName = "Madison Beer", lengthMin = 3, 
+                            lengthSec = 23, albumName = "Reckless", genre = "Pop" },
+                new Track { trackName = "Hymn for the Weekend", artistName = "Coldplay", lengthMin = 4, 
+                            lengthSec = 18, albumName = "A Head Full of Deams", genre = "Pop" },
+                new Track { trackName = "Homage", artistName = "Mild High Club", lengthMin = 2, 
+                            lengthSec = 57, albumName = "Skiptracing", genre = "Indie Garage Rock" },
+                new Track { trackName = "Blue Spirits", artistName = "DWLLRS", lengthMin = 3, 
+                            lengthSec = 18, albumName = "Blue Spirits", genre = "Chill Pop" },
+                new Track { trackName = "LIMBO", artistName = "keshi", lengthMin = 3, 
+                            lengthSec = 33, albumName = "GABRIEL", genre = "Chill R&B" },
             };
 
             var discoverWeekly = new List<string>()
@@ -41,7 +53,7 @@ namespace SpotifudgeOOP
                 " ",
                 $"Made for {User.Username}",
                 "By Spotifudge",
-                " "
+                " ",
             };
 
             foreach (string i in discoverWeekly)
@@ -58,7 +70,7 @@ namespace SpotifudgeOOP
                 }
 
                 Console.WriteLine(" ");
-                Console.Write("Select a track (enter the number) or type 'exit' to quit: ");
+                Console.Write("Enter track number or type 'exit' to quit: ");
                 string input = Console.ReadLine();
 
                 if (input.ToLower() == "exit")
@@ -83,16 +95,18 @@ namespace SpotifudgeOOP
                             Console.WriteLine($"Album: {selectedTrack.albumName}");
                             Console.WriteLine($"Genre: {selectedTrack.genre}");
 
-                            PlaybackOptions(selectedTrack);
+                            PlaybackOptions(selectedTrack, tracks);
                         }
                         else
                         {
                             Console.WriteLine("Invalid track selection.");
+                            Console.WriteLine(" ");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input. Please enter a valid track number or 'exit' to quit.");
+                        Console.WriteLine("Unrecognized input. Try again.");
+                        Console.WriteLine(" ");
                     }
                 }
             }
@@ -113,7 +127,7 @@ namespace SpotifudgeOOP
             return Console.ReadLine();
         }
 
-        public static void PlaybackOptions(Track selectedTrack)
+        public static void PlaybackOptions(Track selectedTrack, Track[] tracks)
         {
             bool exit = false;
             while (!exit)
@@ -135,10 +149,10 @@ namespace SpotifudgeOOP
                     switch (selectedOption)
                     {
                         case 1:
-                            PlayOption(selectedTrack);
+                            PlayTrack(selectedTrack);
                             break;
                         case 2:
-                            Console.WriteLine("Shuffling track...");
+                            ShuffleTracks(tracks);
                             break;
                         case 3:
                             Console.WriteLine("Repeating track...");
@@ -153,23 +167,39 @@ namespace SpotifudgeOOP
                             exit = true;
                             break;
                         default:
+                            Console.WriteLine(" ");
                             Console.WriteLine("Invalid option.");
                             break;
                     }
                 }
                 else
                 {
+                    Console.WriteLine(" ");
                     Console.WriteLine("Invalid input. Please enter a valid option number.");
                 }
             }
         }
 
-        public static void PlayOption(Track selectedTrack)
+        public static void PlayTrack(Track selectedTrack)
         {
             Console.WriteLine(" ");
             Console.WriteLine($"Now Playing: {selectedTrack.trackName}");
-            Console.WriteLine($"by {selectedTrack.artistName}");
-            Console.WriteLine($"from {selectedTrack.albumName}");
+            Console.WriteLine($"by: {selectedTrack.artistName}");
+            Console.WriteLine($"from: {selectedTrack.albumName}");
+        }
+
+        public static void ShuffleTracks(Track[] tracks)
+        {
+            Random random = new Random();
+            int trackIndex = random.Next(0, tracks.Length);
+            Track shuffledTrack = tracks[trackIndex];
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Shuffling tracks...");
+            Console.WriteLine(" ");
+            Console.WriteLine($"Now Playing: {shuffledTrack.trackName}");
+            Console.WriteLine($"by: {shuffledTrack.artistName}");
+            Console.WriteLine($"from: {shuffledTrack.albumName}");
         }
     }
 }
