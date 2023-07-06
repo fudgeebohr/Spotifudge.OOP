@@ -130,6 +130,7 @@ namespace SpotifudgeOOP
         public static void PlaybackOptions(Track selectedTrack, Track[] tracks)
         {
             bool exit = false;
+            bool repeat = false;
             while (!exit)
             {
                 Console.WriteLine(" ");
@@ -155,10 +156,12 @@ namespace SpotifudgeOOP
                             ShuffleTracks(tracks);
                             break;
                         case 3:
-                            Console.WriteLine("Repeating track...");
+                            repeat = !repeat;
+                            Console.WriteLine(" ");
+                            Console.WriteLine("Repeat status: " + (repeat ? "Enabled" : "Disabled"));
                             break;
                         case 4:
-                            Console.WriteLine("Adding track to playlist...");
+                            AddToPlaylist(selectedTrack);
                             break;
                         case 5:
                             Console.WriteLine(" ");
@@ -200,6 +203,36 @@ namespace SpotifudgeOOP
             Console.WriteLine($"Now Playing: {shuffledTrack.trackName}");
             Console.WriteLine($"by: {shuffledTrack.artistName}");
             Console.WriteLine($"from: {shuffledTrack.albumName}");
+        }
+
+        public static void AddToPlaylist(Track selectedTrack)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Select Playlist:");
+            Console.WriteLine("1. My Playlist 1");
+            Console.WriteLine("2. My Playlist 2");
+            Console.WriteLine("3. My Playlist 3");
+            Console.WriteLine();
+
+            Console.Write("Enter your choice: ");
+            int playlistOption = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+
+            switch (playlistOption)
+            {
+                case 1:
+                    Console.WriteLine("Added to My Playlist 1.");
+                    break;
+                case 2:
+                    Console.WriteLine("Added to My Playlist 2.");
+                    break;
+                case 3:
+                    Console.WriteLine("Added to My Playlist 3.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid playlist option.");
+                    break;
+            }
         }
     }
 }
